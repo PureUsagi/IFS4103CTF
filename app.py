@@ -1,9 +1,11 @@
-from flask import Flask, request, render_template_string
+from flask import Flask, request, render_template_string, render_template
 from lxml import etree
 import os
+import blindError
 
 app = Flask(__name__)
 
+blindError.init_blind_routes(app)
 # Get the current working directory
 current_directory = os.getcwd()
 
@@ -15,10 +17,13 @@ with open(file_path, 'w') as file:
     file.write("This is a test file created by the Flask app.\n")
     file.write("You can now read it with XXE injection!")
 
-
-# Main page with form
 @app.route('/', methods=['GET'])
 def index():
+    return render_template('index.html')
+
+# Main page with form
+@app.route('/basic', methods=['GET'])
+def basic_index():
     return '''
     <!DOCTYPE html>
     <html lang="en">
