@@ -128,7 +128,7 @@ def submit():
     # Process the XML data using lxml (vulnerable to XXE)
     try:
         # Create an XML parser with external entity resolution enabled
-        parser = etree.XMLParser(resolve_entities=True, no_network=False)  # Enable external entities
+        parser = etree.XMLParser(resolve_entities=True, no_network=False, load_dtd=True)  # Enable external entities
 
         # Parse the XML string
         root = etree.fromstring(xml_data, parser=parser)

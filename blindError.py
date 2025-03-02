@@ -173,7 +173,7 @@ def init_blind_routes(app):
             <body>
                 <div class="container">
                     <h1>Error Processing XML</h1>
-                    <p>There was an error processing the XML data: {e}</p>
+                    <p>There was an error processing the XML data: {str(e)}</p>
                 </div>
             </body>
             </html>
