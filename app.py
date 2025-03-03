@@ -2,10 +2,13 @@ from flask import Flask, request, render_template_string, render_template, url_f
 from lxml import etree
 import os
 import blindError
+import blindOOB
 
 app = Flask(__name__)
 
 blindError.init_blind_routes(app)
+blindOOB.init_blindOOB(app)
+
 # Get the current working directory
 current_directory = os.getcwd()
 
