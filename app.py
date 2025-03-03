@@ -46,52 +46,8 @@ def submit():
         return render_template("basicchallange_response.html", location=location)
 
     except Exception as e:
-        # Handle any errors that occur during XML processing and return an error page
-        error_html = f"""
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Error Processing XML</title>
-            <style>
-                body {{
-                    font-family: Arial, sans-serif;
-                    background-color: #f4f4f4;
-                    color: #333;
-                    margin: 0;
-                    padding: 0;
-                }}
-                .container {{
-                    width: 50%;
-                    margin: 50px auto;
-                    background-color: #fff;
-                    padding: 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                }}
-                h1 {{
-                    text-align: center;
-                    color: #f44336;
-                }}
-                p {{
-                    font-size: 18px;
-                    text-align: center;
-                    color: #555;
-                }}
-            </style>
-        </head>
-        <body>
-            <div class="container">
-                <h1>Error Processing XML</h1>
-                <p>There was an error processing the XML data: {str(e)}</p>
-            </div>
-        </body>
-        </html>
-        """
-        
         # Return the error page
-        return error_html
+        return render_template("basicchallenge_error.html", e=e)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000, debug=True)
