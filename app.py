@@ -43,7 +43,7 @@ def submit():
         location = root.find('location').text
 
         # Return the beautified HTML response
-        return render_template("basicchallange_response.html")
+        return render_template("basicchallange_response.html", location=location)
 
     except Exception as e:
         # Handle any errors that occur during XML processing and return an error page
