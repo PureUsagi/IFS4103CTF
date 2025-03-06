@@ -1,69 +1,79 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CTF Challenge: XXE Injection</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                margin: 0;
-                padding: 0;
-            }
-            .container {
-                width: 50%;
-                margin: 50px auto;
-                background-color: #fff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            }
-            h1 {
-                text-align: center;
-                color: #333;
-            }
-            label {
-                display: block;
-                margin-bottom: 8px;
-                font-weight: bold;
-                color: #555;
-            }
-            input[type="text"] {
-                width: 100%;
-                padding: 10px;
-                margin: 8px 0 20px 0;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-            input[type="submit"] {
-                background-color: #4CAF50;
-                color: white;
-                border: none;
-                padding: 12px 20px;
-                border-radius: 4px;
-                cursor: pointer;
-                width: 100%;
-                font-size: 16px;
-            }
-            input[type="submit"]:hover {
-                background-color: #45a049;
-            }
-            .footer {
-                text-align: center;
-                font-size: 12px;
-                color: #888;
-                margin-top: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Welcome to XXE Injection</h1>
-        <p>Please choose a page:</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Challenge: XXE Injection</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .navbar {
+            background-color: #343a40;
+            padding: 15px;
+            text-align: center;
+        }
+        .navbar h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 15px 0;
+        }
+        a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #0056b3;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Welcome to the XXE Injection Challenge</h1>
+    </div>
+    <div class="container">
+        <p>Select a challenge below:</p>
         <ul>
-          <li><a href="/basic">Basic Challenge</a></li>
-          <li><a href="/blind">Blind XXE Error</a></li>
+            <li><a href="/basic">Basic Challenge</a></li>
+            <li><a href="/blind">Blind XXE Error</a></li>
+            <li><a href="/blindOOB">Out-of-band Data Exfiltration</a></li>
         </ul>
-      </body>
-    </html>
+    </div>
+    <div class="footer">
+        &copy; 2025 IFS4103 Group 6 XXE Challenge | All rights reserved.
+    </div>
+</body>
+</html>
+
