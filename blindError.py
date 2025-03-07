@@ -11,42 +11,51 @@ def init_blind_routes(app):
         <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CTF Challenge: Blind XXE Injection</title>
+        <title>Umbra Cartel Church Portal</title>
             <style>
                 body {
                     font-family: Arial, sans-serif;
-                    background-color: #f4f4f4;
+                    background-color: #121212;
+                    color: #ddd;
                     margin: 0;
                     padding: 0;
+                    text-align: center;
                 }
                 .container {
-                    width: 50%;
+                    width: 40%;
                     margin: 50px auto;
-                    background-color: #fff;
+                    background-color: #1e1e1e;
                     padding: 20px;
                     border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
                 }
                 h1 {
-                    text-align: center;
-                    color: #333;
+                    color: #ff4444;
+                    text-transform: uppercase;
+                    font-size: 24px;
+                }
+                .logo {
+                    width: 100px;
+                    margin-bottom: 20px;
                 }
                 label {
                     display: block;
-                    margin-bottom: 8px;
+                    margin-bottom: 10px;
                     font-weight: bold;
-                    color: #555;
+                    color: #ff4444;
                 }
                 input[type="text"] {
                     width: 100%;
                     padding: 10px;
-                    margin: 8px 0 20px 0;
-                    border: 1px solid #ccc;
+                    margin: 8px 0;
+                    border: 1px solid #444;
+                    background-color: #222;
+                    color: #fff;
                     border-radius: 4px;
                     box-sizing: border-box;
                 }
                 input[type="submit"] {
-                    background-color: #4CAF50;
+                    background-color: #ff4444;
                     color: white;
                     border: none;
                     padding: 12px 20px;
@@ -54,9 +63,11 @@ def init_blind_routes(app):
                     cursor: pointer;
                     width: 100%;
                     font-size: 16px;
+                    text-transform: uppercase;
+                    font-weight: bold;
                 }
                 input[type="submit"]:hover {
-                    background-color: #45a049;
+                    background-color: #cc0000;
                 }
                 .footer {
                     text-align: center;
@@ -67,14 +78,15 @@ def init_blind_routes(app):
             </style>
         </head>
         <body>
-            <h1>Blind XXE Challenge</h1>
-            <p>This challenge doesn't display the parsed data in the response (hence "blind").</p>
-            <p>Try to exfiltrate server-side files or data by making the server connect to your endpoint! Get flag.txt</p>
-
-            <form action="/blindAttack" method="POST">
-                <textarea name="xml_payload" rows="10" cols="50" placeholder="Place your XML here"></textarea><br>
-                <button type="submit">Submit Blind XXE Payload</button>
-            </form>
+            <div class="container">
+                <img src="static/images/umbra_cartel_logo.png" alt="Umbra Cartel Logo" class="logo">
+                <h1>Blind Error Trial</h1>
+                <p>Prove your faith to the priest, hand me your best XXE payload and you shall be rewarded!</p>
+                <form action="/blindAttack" method="POST">
+                    <textarea name="xml_payload" rows="10" cols="50" placeholder="I am 14 and this is deep"></textarea><br>
+                    <button type="submit">I pledge my faith!</button>
+                </form>
+            </div>
         </body>
         </html>
         '''
@@ -91,7 +103,7 @@ def init_blind_routes(app):
             root = etree.fromstring(xml_data, parser=parser)
 
             # Build a beautified HTML response page
-            response_html = f"""
+            response_html = """
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -99,34 +111,45 @@ def init_blind_routes(app):
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Message Received</title>
                 <style>
-                    body {{
+                    body {
                         font-family: Arial, sans-serif;
-                        background-color: #f4f4f4;
-                        color: #333;
+                        background-color: #121212;
+                        color: #ddd;
                         margin: 0;
                         padding: 0;
-                    }}
-                    .container {{
-                        width: 50%;
-                        margin: 50px auto;
-                        background-color: #fff;
+                        text-align: center;
+                    }
+                    .container {
+                        width: 40%;
+                        margin: 80px auto;
+                        background-color: #1e1e1e;
                         padding: 20px;
                         border-radius: 8px;
-                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                    }}
-                    h1 {{
-                        text-align: center;
-                        color: #4CAF50;
-                    }}
-                    p {{
+                        box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+                    }
+                    .logo {
+                        width: 100px;
+                        margin-bottom: 20px;
+                    }
+                    h1 {
+                        color: #ff4444;
+                        font-size: 24px;
+                        text-transform: uppercase;
+                        text-shadow: 0 0 10px rgba(255, 68, 68, 0.8);
+                    }
+                    p {
                         font-size: 18px;
-                        text-align: center;
-                    }}
+                        color: #ccc;
+                        padding: 10px;
+                        background-color: #222;
+                        border-left: 4px solid #ff4444;
+                        display: inline-block;
+                    }
                 </style>
             </head>
             <body>
                     <h1>Payload Received</h1>
-                    <p>No parsed data is shown. This is a blind XXE scenario.</p>
+                    <p>Thank you for your pledge, we will make sure the priest will be in touch with you.</p>
                 </body>
             </html>
             """
