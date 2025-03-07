@@ -15,7 +15,7 @@ def index():
         "But my time in the cartel has not gone to waste, I have discovered where the cartel are keeping <insert information here>. The information is kept in 2 locations," \
         " a decommissioned server with most of its contents removed (<IP and port>), and a experimental test server for XML attacks (<IP and port>). This is all I can provide you," \
         "good luck. -A4103"
-        return ""
+        return hidden_message
     
     return render_template("hidden.html")
 
