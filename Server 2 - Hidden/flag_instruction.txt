@@ -1,0 +1,3 @@
+remember to update the following information:
+- source ip in app.py
+- ip address of server 3 and 4 in not_sus.html
