@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Received</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ddd;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            width: 40%;
+            margin: 80px auto;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+        }
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #ff4444;
+            font-size: 24px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(255, 68, 68, 0.8);
+        }
+        p {
+            font-size: 18px;
+            color: #ccc;
+            padding: 10px;
+            background-color: #222;
+            border-left: 4px solid #ff4444;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/umbra_cartel_logo.png') }}" alt="Umbra Cartel Logo" class="logo">
+        <h1>Tip-off Received</h1>
+        <p>Affirmative! Cop Activity at <strong>{{ location }}</strong> has been received. We will disseminate to our brothers immediately. Thank you comrade!</p>
+    </div>
+</body>
+</html>
