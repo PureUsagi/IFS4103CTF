@@ -1,0 +1,7 @@
+Use decoder to encode this message:
+You're on the right track, but this is not the right place to speak, you will find what you need at <IP address>:9000. However, I've put a security measure in place to hide from prying eyes, only this server can see the truth.
+
+
+Insert the encoded message to the top of /etc/passwd using comments #, start line with:
+
+#Secret = 

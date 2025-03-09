@@ -112,7 +112,7 @@ def init_blindOOB(app):
             <body>
                 <div class="container">
                     <h1>Error Processing XML</h1>
-                    <p>There was an error processing the XML data: {e}</p>
+                    <p>There was an error processing the XML data</p>
                 </div>
             </body>
             </html>

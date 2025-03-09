@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbra Cartel Tip-Off Portal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ddd;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            width: 40%;
+            margin: 50px auto;
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+        }
+        h1 {
+            color: #ff4444;
+            text-transform: uppercase;
+            font-size: 24px;
+        }
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #ff4444;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #444;
+            background-color: #222;
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background-color: #cc0000;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='images/umbra_cartel_logo.png') }}" alt="Umbra Cartel Logo" class="logo">
+        <h1>Tip-Off Portal</h1>
+        <p>Submit intelligence on law enforcement activity.</p>
+        <form action="/submit" method="POST" enctype="text/plain">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required><br>
+
+            <label for="message">Message:</label>
+            <input type="text" id="message" name="message" required><br>
+
+            <input type="submit" value="Submit Tip">
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const location = document.querySelector('input[name="location"]').value;
+            const message = document.querySelector('input[name="message"]').value;
+            const xmlData = `<root><location>${location}</location><message>${message}</message></root>`;
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/xml'
+                },
+                body: xmlData
+            }).then(response => response.text())
+              .then(data => document.body.innerHTML = data);
+        });
+    </script>
+</body>
+</html>
