@@ -15,7 +15,7 @@ def blindOOBAttack():
     # Process the XML data using lxml (vulnerable to XXE)
     try:
         # Create an XML parser with external entity resolution enabled
-        parser = etree.XMLParser(load_dtd=True, dtd_validation=False, resolve_entities=True, no_network=False, remove_blank_text=True)  # Enable external entities
+        parser = etree.XMLParser(load_dtd=True, dtd_validation=False, resolve_entities=True, no_network=False, remove_blank_text=True, recover=True)  # Enable external entities
         
         # Parse the XML string
         root = etree.fromstring(xml_data, parser=parser)
