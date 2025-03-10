@@ -35,7 +35,7 @@
             border-bottom: 2px solid #0ff;
             padding-bottom: 10px;
         }
-        p {
+        p, li {
             font-size: 16px;
             color: #b2f7ff;
             line-height: 1.6;
@@ -48,6 +48,10 @@
             border-radius: 4px;
             display: inline-block;
         }
+        .highlight {
+            color: #ff4444;
+            font-weight: bold;
+        }
         .signature {
             margin-top: 20px;
             font-size: 14px;
@@ -59,18 +63,26 @@
 </head>
 <body>
     <div class="container">
-        <img src="/static/images/sentinel_division_logo.png" alt="Sentinel Division Logo" class="logo">
+        <img src="static/images/sentinel_division_logo.png" alt="Sentinel Division Logo" class="logo">
         <h1>⚠ Classified Transmission ⚠</h1>
         <p>
             I hope this message finds its way into the right hands.<br>
             If you are reading this, my cover has been blown, and I am currently in hiding. But my time in the cartel has not gone to waste.
         </p>
         <p>
-            I have discovered where the cartel is keeping <span class="code">&lt;insert information here&gt;</span>. The data is stored in two locations:
+            I have uncovered where the  <span class="highlight">location of the cartel's drug operations</span> is stored. The data is split between two servers:
         </p>
         <ul>
-            <li>A decommissioned server with most of its contents removed: <span class="code">&lt;IP and port&gt;</span></li>
-            <li>An experimental test server for XML attacks: <span class="code">&lt;IP and port&gt;</span></li>
+            <li>
+                <span class="highlight">1. Experimental Test Server for XML Attacks:</span> <span class="code">&lt;IP and port&gt;</span>
+                <br> - Originally a <span class="highlight">location database</span>, it may contain <span class="code">secrets.txt</span> in the root folder.
+                <br> - The server is highly unstable and frequently returns <span class="highlight">error messages</span>.
+            </li>
+            <li>
+                <span class="highlight">2. Decommissioned Server (Wiped Data):</span> <span class="code">&lt;IP and port&gt;</span>
+                <br> - Contains only an <span class="highlight">error page</span> and a file server only accepting requests from<span class="code">localhost:7000</span>.
+                <br> - Does not reflect user input or errors — <span class="highlight">find alternative ways to retrieve information</span>.
+            </li>
         </ul>
         <p>
             This is all I can provide you. The rest is up to you.<br>
@@ -80,4 +92,3 @@
     </div>
 </body>
 </html>
-
